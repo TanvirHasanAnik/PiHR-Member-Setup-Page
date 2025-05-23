@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: #fff;
+    --foreground: #090909;
+    --primary: #3366ff;
+    --primary-foreground: #fafaf9;
+    --primary-light: #ebf0ff;
+    --secondary: #9b59b6;
+    --secondary-foreground: #fafaf9;
+    --secondary-light: #f5eef8;
+    --accent: #f97316;
+    --accent-foreground: #fafaf9;
+    --accent-light: #fef1e8;
+    --success: #45d483;
+    --success-foreground: #fafaf9;
+    --success-light: #ecfbf3;
+    --warning: #fab005;
+    --warning-foreground: #fafaf9;
+    --warning-light: #fff7e6;
+    --danger: #fa5252;
+    --danger-foreground: #fafaf9;
+    --danger-light: #ffeeee;
+    --neutral: #e4e4e7;
+    --muted: #f4f4f5;
+    --placeholder: #00000066;
+    --black: #262626;
+    --ring: #3366ff;
+    --divider: #00000066;
+    --disabled: #f2f2f2;
+    --radius: 0.5rem;
+  }
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
