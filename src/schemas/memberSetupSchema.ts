@@ -2,8 +2,8 @@ import {z} from 'zod'
 
 const memberSetupSchema = ()=> z.object({
     employee_pf_id: z.string().min(1,{message: "PF ID is required"}),
-    pf_join_date: z.date().optional().nullable(),
-    pf_effective_date: z.date().optional().nullable(),
+    pf_join_date: z.date().optional().nullable().refine((value)=> value !== null && value !== undefined, {message: "PF Effective date is required"}),
+    pf_effective_date: z.date().optional().nullable().refine((value)=> value !== null && value !== undefined, {message: "PF Effective date is required"}),
     pf_status: z.object({
         label: z.string().nullable(),
         value: z.string().nullable()
