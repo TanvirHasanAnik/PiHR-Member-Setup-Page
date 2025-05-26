@@ -18,77 +18,79 @@ const MemberSetupForm = () => {
         console.log("Form Values:", data);
     }
     return (
-        <div>
             <FormProvider {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
-                <HookFormItem name="employee_pf_id" className="w-full">
-                  <VKInput label={"PF ID"} isRequired rounded="md"/>
-                </HookFormItem>
-            <HookFormItem name="pf_join_date" className="w-full">
-                <CustomDatePicker
-                isRequired
-                label={"PF Join Date"}
-                placeholder={langfmt}
-                selected={form.watch("pf_join_date")}
-                //disabled={currentPfStatus?.pf_join_date_string}
-                />
-            </HookFormItem>
-            <HookFormItem name="pf_effective_date" className="w-full">
-                <CustomDatePicker
-                isRequired
-                label={"PF Effective Date"}
-                placeholder={langfmt}
-                selected={form.watch("pf_effective_date")}
-                />
-            </HookFormItem>
-            <HookFormItem
-                name="own_contribution_balance"
-                className="w-full"
-            >
-                <VKInput
-                isRequired
-                label={"Own Contribution Balance"}
-                type="number"
-                preventSigned={true}
-                preventExponents
-                />
-            </HookFormItem>
-            <HookFormItem name="org_contribution_balance" className="w-full">
-                <VKInput
-                isRequired
-                label={"Org Contribution Balance"}
-                type="number"
-                preventSigned={true}
-                preventExponents
-                />
-            </HookFormItem>
-            <HookFormItem name="own_interest_balance" className="w-full">
-                <VKInput
-                isRequired
-                label={"Own Interest Balance"}
-                type="number"
-                preventSigned={true}
-                preventExponents
-                />
-            </HookFormItem>
-            <HookFormItem name="org_interest_balance" className="w-full">
-                <VKInput
-                isRequired
-                label={"Org Interest Balance"}
-                type="number"
-                preventSigned={true}
-                preventExponents
-                />
-            </HookFormItem>
-            <SaveBtn
-                className={`!text-sm`}
-                title={"Save"}
-                //isLoading={createPfMemberSetupLoading}
-            />
-            
-            </form>
+                    <div className="p-5 space-y-5 bg-gray-50 rounded-xl">
+                    <div className="flex gap-5">
+                        <HookFormItem name="employee_pf_id" className="w-full">
+                            <VKInput label={"PF ID"} isRequired rounded="md"/>
+                        </HookFormItem>
+                        <HookFormItem name="pf_join_date" className="w-full">
+                            <CustomDatePicker
+                            isRequired
+                            label={"PF Join Date"}
+                            placeholder={langfmt}
+                            selected={form.watch("pf_join_date")}
+                            //disabled={currentPfStatus?.pf_join_date_string}
+                            />
+                        </HookFormItem>
+                        <HookFormItem name="pf_effective_date" className="w-full">
+                            <CustomDatePicker
+                            isRequired
+                            label={"PF Effective Date"}
+                            placeholder={langfmt}
+                            selected={form.watch("pf_effective_date")}
+                            />
+                        </HookFormItem>
+                    </div>
+                    <div className="flex gap-5">
+                        <HookFormItem name="own_contribution_balance" className="w-full">
+                            <VKInput
+                            isRequired
+                            label={"Own Contribution Balance"}
+                            type="number"
+                            preventSigned={true}
+                            preventExponents
+                            />
+                        </HookFormItem>
+                        <HookFormItem name="org_contribution_balance" className="w-full">
+                            <VKInput
+                            isRequired
+                            label={"Org Contribution Balance"}
+                            type="number"
+                            preventSigned={true}
+                            preventExponents
+                            />
+                        </HookFormItem>
+                        <HookFormItem name="own_interest_balance" className="w-full">
+                            <VKInput
+                            isRequired
+                            label={"Own Interest Balance"}
+                            type="number"
+                            preventSigned={true}
+                            preventExponents
+                            />
+                        </HookFormItem>
+                        <HookFormItem name="org_interest_balance" className="w-full">
+                            <VKInput
+                            isRequired
+                            label={"Org Interest Balance"}
+                            type="number"
+                            preventSigned={true}
+                            preventExponents
+                            />
+                        </HookFormItem>
+                    </div>
+                    <div className="flex gap-5 items-center justify-end">
+                        <SaveBtn
+                            className={`!text-sm`}
+                            title={"Save"}
+                            //isLoading={createPfMemberSetupLoading}
+                        />
+                    </div>
+                    </div>
+                </form>
             </FormProvider>
-        </div>
     )
 }
 
