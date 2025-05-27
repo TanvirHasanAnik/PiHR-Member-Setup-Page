@@ -18,12 +18,13 @@ const MemberSetupForm = () => {
         console.log("Form Values:", data);
     }
     return (
+        <div className="w-full">
             <FormProvider {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)}>
-                    <div className="p-5 space-y-5 bg-gray-50 rounded-xl">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
+                    <div className="p-5 space-y-5 bg-gray-50 rounded-xl w-full">
                     <div className="flex gap-5">
                         <HookFormItem name="employee_pf_id" className="w-full">
-                            <VKInput label={"PF ID"} isRequired rounded="md"/>
+                            <VKInput label={"PF ID"} isRequired rounded="md" size="sm"/>
                         </HookFormItem>
                         <HookFormItem name="pf_join_date" className="w-full">
                             <CustomDatePicker
@@ -48,6 +49,8 @@ const MemberSetupForm = () => {
                             <VKInput
                             isRequired
                             label={"Own Contribution Balance"}
+                            size="sm"
+                            rounded="md"
                             type="number"
                             preventSigned={true}
                             preventExponents
@@ -57,6 +60,8 @@ const MemberSetupForm = () => {
                             <VKInput
                             isRequired
                             label={"Org Contribution Balance"}
+                            size="sm"
+                            rounded="md"
                             type="number"
                             preventSigned={true}
                             preventExponents
@@ -66,6 +71,8 @@ const MemberSetupForm = () => {
                             <VKInput
                             isRequired
                             label={"Own Interest Balance"}
+                            size="sm"
+                            rounded="md"
                             type="number"
                             preventSigned={true}
                             preventExponents
@@ -75,6 +82,8 @@ const MemberSetupForm = () => {
                             <VKInput
                             isRequired
                             label={"Org Interest Balance"}
+                            size="sm"
+                            rounded="md"
                             type="number"
                             preventSigned={true}
                             preventExponents
@@ -91,6 +100,7 @@ const MemberSetupForm = () => {
                     </div>
                 </form>
             </FormProvider>
+        </div>
     )
 }
 

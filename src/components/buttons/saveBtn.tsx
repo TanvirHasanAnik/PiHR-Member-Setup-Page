@@ -19,7 +19,7 @@ export default function SaveBtn(props: TProps) {
   return (
     <VKButton
       type={props.type ? props.type : "submit"}
-      className={clsx("save-btn-wrapper", props.className)}
+      className={clsx("min-w-[7.69rem] !h-10 !px-11 !py-2.5 !bg-primary-600 !text-white !rounded-md", props.className)}
       loading={props.isLoading}
       disabled={props.isLoading || props.isDisabled}
       onClick={(e: any) => handleOnClick(e)}

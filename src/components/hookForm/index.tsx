@@ -25,7 +25,7 @@ const HookFormItem = ({ children, name, className, errorClassName }: Props) => {
         <div className={className}>
           {React.cloneElement(children, {
             ...field,
-            className: cn("text-sm", children.props.className),
+            className: cn("text-sm !h-9 w-full", children.props.className),
             labelClassName: cn("!text-xs", children.props.labelClassName),
             errorMessage: error?.message,
             hasError: !!error,
@@ -34,6 +34,7 @@ const HookFormItem = ({ children, name, className, errorClassName }: Props) => {
               errorClassName,
             ),
             styles: {
+              height: "36px",
               ...children.props.styles,
               error: "rtl:right-1 rtl:text-right",
               wrapper: "rtl:right-1 rtl:text-right",

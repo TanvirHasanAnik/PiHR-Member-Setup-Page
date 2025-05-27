@@ -9,6 +9,7 @@ import { getYear, getMonth } from "date-fns";
 import { twMerge } from "tailwind-merge";
 import clsx, { type ClassValue } from "clsx";
 import langfmt from "../../../langfmt";
+import "../../../App.css"
 
 function cn(...args: ClassValue[]){
     return twMerge(clsx(args))
@@ -114,7 +115,7 @@ const CustomDatePicker = React.forwardRef<HTMLDivElement, IDateProps>(
     ref,
   ) {
     return (
-      <div className={cn("relative flex  flex-col gap-2", className)} ref={ref}>
+      <div className={cn("flex  flex-col gap-2 w-full", className)} ref={ref}>
         <VKLabel
           className={(cn("text-xs font-medium text-gray-750"), labelClassName)}
           isRequired={isRequired}
@@ -124,7 +125,7 @@ const CustomDatePicker = React.forwardRef<HTMLDivElement, IDateProps>(
         <ErrorBoundary
           fallback={<p className="text-danger">{"ERROR_IN_DATEPICKER"}</p>}
         >
-          <div>
+          <div className="w-full">
             <DatePicker
               disabled={disabled}
               popperPlacement={popperPlacement as any}
