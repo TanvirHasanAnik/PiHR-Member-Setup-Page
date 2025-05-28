@@ -32,6 +32,7 @@ const MemberSetupForm = () => {
                             label={"PF Join Date"}
                             placeholder={langfmt}
                             selected={form.watch("pf_join_date")}
+                            popperClassName="block"
                             //disabled={currentPfStatus?.pf_join_date_string}
                             />
                         </HookFormItem>

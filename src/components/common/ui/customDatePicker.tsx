@@ -144,7 +144,7 @@ const CustomDatePicker = React.forwardRef<HTMLDivElement, IDateProps>(
               className={
                 hasError
                   ? `!border  focus:outline-none border-danger focus:ring-danger focus:ring-1 rounded-lg w-full text-sm h-9 ${datePickerClassName}`
-                  : `!border focus:outline-none text-gray-900 focus:border-primary-500  focus:ring-primary-500 focus:ring-1 rounded-lg w-full text-sm h-9 ${datePickerClassName}`
+                  : `!border focus:outline-none text-gray-900 focus:border-primary-500  focus:ring-primary-500 focus:ring-1 rounded-lg w-full text-sm h-9 block ${datePickerClassName}`
               }
               icon={<CalenderIcon />}
               placeholderText={placeholder ? placeholder : "SELECT_DATE"}
