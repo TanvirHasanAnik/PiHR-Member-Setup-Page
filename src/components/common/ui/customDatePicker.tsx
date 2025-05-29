@@ -140,6 +140,12 @@ const CustomDatePicker = React.forwardRef<HTMLDivElement, IDateProps>(
                 CustomHeader(e, maxFutureYearForSelect)
               }
               dateFormat= {dateFormat ?? langfmt}
+              
+              // dateFormat={
+              //   !dateFormat
+              //     ? `${convertMomentToDateFnsFormat(langFmt)}${!showTimeSelect ? "" : ", hh:mm a"}`
+              //     : dateFormat
+              // }
               showTimeSelect={showTimeSelect}
               className={
                 hasError

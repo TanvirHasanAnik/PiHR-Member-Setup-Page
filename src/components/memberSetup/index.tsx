@@ -35,40 +35,41 @@ const MemberSetupForm = () => {
 
     const parseDate = (dateString: string, dateFormat?: string) => {
     if (dateString) {
-        return moment(dateString, dateFormat ?? "DD/MM/YYYY").toDate();
+        return moment(dateString, dateFormat ?? "mm-DD-yyyy").toDate();
     } else {
         return null;
     }
     };
     const date = new Date()
     useEffect(() => {
-      form.setValue("employee_pf_id", currentPfStatus?.employee_pf_id ?? "");
-      const pfJoinDate = currentPfStatus?.pf_join_date_string
-        ? parseDate(currentPfStatus?.pf_join_date_string, langfmt)
-        : undefined;
-      form.setValue("pf_join_date", pfJoinDate ?? date);
-      const pfEffectiveDate = currentPfStatus?.pf_effected_date_string
-        ? parseDate(
-            currentPfStatus?.pf_effected_date_string,langfmt,
-          )
-        : undefined;
-      form.setValue("pf_effective_date", pfEffectiveDate ?? date);
-        if (currentPfStatus) {
-        const ownContributionBal =
-            currentPfStatus?.own_contribution_bal?.toString() ?? "0.00";
-        form.setValue("own_contribution_balance", ownContributionBal);
-        const orgContributionBal =
-            currentPfStatus?.org_contribution_bal?.toString() ?? "0.00";
-        form.setValue("org_contribution_balance", orgContributionBal);
-        const ownInterestBal =
-            currentPfStatus?.own_interest_bal?.toString() ?? "0.00";
-        form.setValue("own_interest_balance", ownInterestBal);
-        const orgInterestBal =
-            currentPfStatus?.org_interest_bal?.toString() ?? "0.00";
-        form.setValue("org_interest_balance", orgInterestBal);
-        form.clearErrors();
+        if(currentPfStatus !== undefined && currentPfStatus !== null){
+            form.setValue("employee_pf_id", currentPfStatus?.employee_pf_id ?? "");
+            const pfJoinDate = currentPfStatus?.pf_join_date_string
+                ? parseDate(currentPfStatus?.pf_join_date_string, langfmt)
+                : undefined;
+            form.setValue("pf_join_date", pfJoinDate ?? date);
+            const pfEffectiveDate = currentPfStatus?.pf_effected_date_string
+                ? parseDate(
+                    currentPfStatus?.pf_effected_date_string,langfmt,
+                )
+                : undefined;
+            form.setValue("pf_effective_date", pfEffectiveDate ?? date);
+            if (currentPfStatus) {
+            const ownContributionBal =
+                currentPfStatus?.own_contribution_bal?.toString() ?? "0.00";
+            form.setValue("own_contribution_balance", ownContributionBal);
+            const orgContributionBal =
+                currentPfStatus?.org_contribution_bal?.toString() ?? "0.00";
+            form.setValue("org_contribution_balance", orgContributionBal);
+            const ownInterestBal =
+                currentPfStatus?.own_interest_bal?.toString() ?? "0.00";
+            form.setValue("own_interest_balance", ownInterestBal);
+            const orgInterestBal =
+                currentPfStatus?.org_interest_bal?.toString() ?? "0.00";
+            form.setValue("org_interest_balance", orgInterestBal);
+            form.clearErrors();
+            }
         }
-        //eslint-disable-next-line
     }, [currentPfStatus]);
 
     return (
@@ -84,9 +85,8 @@ const MemberSetupForm = () => {
                             <CustomDatePicker
                             isRequired
                             label={"PF Join Date"}
-                            placeholder={langfmt}
+                            placeholder={langfmt.toLowerCase()}
                             selected={form.watch("pf_join_date")}
-                            popperClassName="block"
                             disabled={currentPfStatus?.pf_join_date_string !== undefined}
                             />
                         </HookFormItem>
