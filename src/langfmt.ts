@@ -1,2 +1,2 @@
-const langfmt = "dd-MM-yyyy";
+const langfmt = "MM-DD-YYYY";
 export default langfmt;

@@ -1,6 +1,11 @@
 import {z} from 'zod'
 
 const memberSetupSchema = ()=> z.object({
+    employee_id: z
+      .object({
+        value: z.string().nullable(),
+        label: z.string().nullable(),
+      }),
     employee_pf_id: z.string().min(1,{message: "PF ID is required"}),
     pf_join_date: z.date().optional().nullable().refine((value)=> value !== null && value !== undefined, {message: "PF Effective date is required"}),
     pf_effective_date: z.date().optional().nullable().refine((value)=> value !== null && value !== undefined, {message: "PF Effective date is required"}),
@@ -19,6 +24,7 @@ const memberSetupType = memberSetupSchema()
 type MemberSetupSchemaType = z.infer<typeof memberSetupType>
 
 const memberSetupDefaultValue: MemberSetupSchemaType = { 
+  employee_id: {value: "", label: ""},
   employee_pf_id: "",
   pf_join_date: new Date(),
   pf_effective_date: undefined,
